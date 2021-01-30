@@ -1,3 +1,5 @@
 GGJ2021
 
-Precious
+Team members:
+* Precious
+* Aaron
