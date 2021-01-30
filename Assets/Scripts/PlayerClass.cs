@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 {
@@ -122,7 +123,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         
         if(health == 0)
         {
-            //Death
+            //Disable Player
+            //Enter Death Scene
         }
     }    
 
