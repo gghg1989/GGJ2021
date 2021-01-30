@@ -12,6 +12,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     public float moveSpeed = 5f;
     public Transform movePoint;
 
+    public Health healthDisplay;
+
     public LayerMask CollisionLayer;
 
     // Start is called before the first frame update
@@ -86,10 +88,16 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
             TakeDamage(enemy.enemyPower);
         }
+        if(collision.gameObject.tag == "ExtraLife")
+        {
+            health += 1;
+            healthDisplay.UpdateHealth(1);
+        }
     }
 
     public void TakeDamage(float enemyPower)
     {
-        //Enter 'Take Damage' code here
+        health -= 1;
+        healthDisplay.UpdateHealth(-1);
     }    
 }
