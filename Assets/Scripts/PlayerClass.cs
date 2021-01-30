@@ -10,6 +10,10 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     public int health;
     public float power;
     public float moveSpeed = 5f;
+    public bool attackEnabled = false;
+    private int attackCountdown = 20;
+    public int soulCount;
+
     public Transform movePoint;
 
     public Health healthDisplay;
@@ -37,6 +41,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        AttackCountdown();
     }
 
     private void OnDisable()
@@ -82,22 +88,55 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //To be changed if we have a different damage mechanic in mind
-        if(collision.gameObject.GetComponent<EnemyClass>() != null)
+        if(collision.gameObject.tag == "enemy" && !attackEnabled)
         {
-            EnemyClass enemy = collision.gameObject.GetComponent<EnemyClass>();
-
-            TakeDamage(enemy.enemyPower);
+            //Take Damage for now is default 1 damage an enemy
+            TakeDamage();
         }
-        if(collision.gameObject.tag == "ExtraLife")
+
+        if(collision.gameObject.tag == "extraLife")
         {
+            //Player gains a life, update display
             health += 1;
             healthDisplay.UpdateHealth(1);
         }
+
+        if(collision.gameObject.tag == "superPower")
+        {
+            //Attack is Enabled, Enemies can check for this when colliding with player.
+            //In update, AttackCountdown is called to have a timer for how long this attack state is enabled.
+            attackEnabled = true;
+        }
+
+        //Add to soul count
+        if(collision.gameObject.tag == "soul")
+        {
+            soulCount += 1;
+        }
     }
 
-    public void TakeDamage(float enemyPower)
+    public void TakeDamage()
     {
         health -= 1;
         healthDisplay.UpdateHealth(-1);
+        
+        if(health == 0)
+        {
+            //Death
+        }
     }    
+
+    private void AttackCountdown()
+    {
+        if (attackEnabled == true)
+        {
+            attackCountdown -= 1;
+
+            if (attackCountdown == 0)
+            {
+                attackEnabled = false;
+                attackCountdown = 20;
+            }
+        }
+    }
 }
