@@ -95,6 +95,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisEnemyType: 0
-  enemySpeed: 0
+  enemySpeed: 0.1
+  idleSpeed: 0.01
   enemyPower: 0
   enemyLootDropChance: 0
+  isChasingPlayer: 0
+  idleMoveRadius: 0.01
+  isIdle: 0
+  isMoving: 0
+  testingPlayerGameObject: {fileID: 0}
