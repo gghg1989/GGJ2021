@@ -48,3 +48,9 @@ TagManager:
   - name: Objects
     uniqueID: 2102285027
     locked: 0
+  - name: Player
+    uniqueID: 586785535
+    locked: 0
+  - name: RedEnemy
+    uniqueID: 237443657
+    locked: 0
