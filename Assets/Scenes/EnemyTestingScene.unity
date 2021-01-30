@@ -458,11 +458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c86578a8318d2147a73209a75aafa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempSpawnLocation: {fileID: 0}
+  tempSpawnLocation: {fileID: 2066956377}
   enemiesInObjectPool: 10
   enemyPrefabGameObject: {fileID: 1769981967220518494, guid: f69b5c692d2f76648b4e9f56ec42dcd9,
     type: 3}
-  spawnInterval: 0
+  spawnInterval: 2
 --- !u!1 &2066956377
 GameObject:
   m_ObjectHideFlags: 0
