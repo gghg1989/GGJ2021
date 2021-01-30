@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 {
@@ -88,20 +89,20 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //To be changed if we have a different damage mechanic in mind
-        if(collision.gameObject.tag == "enemy" && !attackEnabled)
+        if(collision.gameObject.tag == "Enemy" && !attackEnabled)
         {
             //Take Damage for now is default 1 damage an enemy
             TakeDamage();
         }
 
-        if(collision.gameObject.tag == "extraLife")
+        if(collision.gameObject.tag == "ExtraLife")
         {
             //Player gains a life, update display
             health += 1;
             healthDisplay.UpdateHealth(1);
         }
 
-        if(collision.gameObject.tag == "superPower")
+        if(collision.gameObject.tag == "SuperPower")
         {
             //Attack is Enabled, Enemies can check for this when colliding with player.
             //In update, AttackCountdown is called to have a timer for how long this attack state is enabled.
@@ -109,7 +110,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         }
 
         //Add to soul count
-        if(collision.gameObject.tag == "soul")
+        if(collision.gameObject.tag == "Soul")
         {
             soulCount += 1;
         }
@@ -122,7 +123,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         
         if(health == 0)
         {
-            //Death
+            //Disable Player
+            //Enter Death Scene
         }
     }    
 

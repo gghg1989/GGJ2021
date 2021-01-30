@@ -1,58 +1,61 @@
 fileFormatVersion: 2
-guid: 3eccc63c1eace1c428c39cb149b9d643
+guid: b4cc4ca4fadbb50499d8fc7da4002b5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6067280627057402370
-    second: Tiles_Dungeon_0
+      213: 9210488870329667285
+    second: Tiles_Dungeon 1_0
   - first:
-      213: -7499290337327899432
-    second: Tiles_Dungeon_1
+      213: 7328632752493665718
+    second: Tiles_Dungeon 1_1
   - first:
-      213: -2252247600148982661
-    second: Tiles_Dungeon_2
+      213: 3081937729425008317
+    second: Tiles_Dungeon 1_2
   - first:
-      213: 3230527407231941184
-    second: Tiles_Dungeon_3
+      213: 8540241049995602479
+    second: Tiles_Dungeon 1_3
   - first:
-      213: 5060424152104728121
-    second: Tiles_Dungeon_4
+      213: -8169326997399601958
+    second: Tiles_Dungeon 1_4
   - first:
-      213: 830084792963895848
-    second: Tiles_Dungeon_5
+      213: 9000613172436660586
+    second: Tiles_Dungeon 1_5
   - first:
-      213: -1895181199473791192
-    second: Tiles_Dungeon_6
+      213: 7459541865582459691
+    second: Tiles_Dungeon 1_6
   - first:
-      213: 1572884063259643183
-    second: Tiles_Dungeon_7
+      213: -4710324607910305119
+    second: Tiles_Dungeon 1_7
   - first:
-      213: 6844812154892935287
-    second: Tiles_Dungeon_8
+      213: 5646068528379767812
+    second: Tiles_Dungeon 1_8
   - first:
-      213: 5167141808596016676
-    second: Tiles_Dungeon_9
+      213: 6766918852497749705
+    second: Tiles_Dungeon 1_9
   - first:
-      213: 3608544748788299177
-    second: Tiles_Dungeon_10
+      213: -8987315727907576410
+    second: Tiles_Dungeon 1_10
   - first:
-      213: -1432841184144385747
-    second: Tiles_Dungeon_11
+      213: -539943025178565816
+    second: Tiles_Dungeon 1_11
   - first:
-      213: -5630699916650721289
-    second: Tiles_Dungeon_12
+      213: 7255499192331072861
+    second: Tiles_Dungeon 1_12
   - first:
-      213: 8891869091627913024
-    second: Tiles_Dungeon_13
+      213: -8880615735582876706
+    second: Tiles_Dungeon 1_13
   - first:
-      213: 4051985251146536690
-    second: Tiles_Dungeon_14
+      213: -5845500274978438918
+    second: Tiles_Dungeon 1_14
   - first:
-      213: 6188610989114742154
-    second: Tiles_Dungeon_15
+      213: -1166367535704308968
+    second: Tiles_Dungeon 1_15
   - first:
-      213: 7413657344569616153
-    second: Tiles_Dungeon_16
+      213: -1597289198785168930
+    second: Tiles_Dungeon 1_16
+  - first:
+      213: -7159709036496502474
+    second: Tiles_Dungeon 1_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -82,7 +85,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -96,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,28 +141,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tiles_Dungeon_0
+      name: Tiles_Dungeon 1_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 814
+        x: 27
+        y: 816
         width: 256
-        height: 257
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efd52af5a60bccba0800000000000000
-      internalID: -6067280627057402370
+      spriteID: 5de40bb04da32df70800000000000000
+      internalID: 9210488870329667285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_1
+      name: Tiles_Dungeon 1_1
       rect:
         serializedVersion: 2
         x: 297
@@ -167,20 +170,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc1d00db2b2de790800000000000000
-      internalID: -7499290337327899432
+      spriteID: 6bd9dadd8a884b560800000000000000
+      internalID: 7328632752493665718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_2
+      name: Tiles_Dungeon 1_2
       rect:
         serializedVersion: 2
         x: 563
@@ -188,20 +191,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b74d4e69db86eb0e0800000000000000
-      internalID: -2252247600148982661
+      spriteID: db6604e390e35ca20800000000000000
+      internalID: 3081937729425008317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_3
+      name: Tiles_Dungeon 1_3
       rect:
         serializedVersion: 2
         x: 829
@@ -209,20 +212,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04a39319f8325dc20800000000000000
-      internalID: 3230527407231941184
+      spriteID: f2a6231acf7058670800000000000000
+      internalID: 8540241049995602479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_4
+      name: Tiles_Dungeon 1_4
       rect:
         serializedVersion: 2
         x: 1091
@@ -230,20 +233,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 936720f74fc3a3640800000000000000
-      internalID: 5060424152104728121
+      spriteID: adcfcf9f068b0ae80800000000000000
+      internalID: -8169326997399601958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_5
+      name: Tiles_Dungeon 1_5
       rect:
         serializedVersion: 2
         x: 30
@@ -251,20 +254,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8221112a8bd058b00800000000000000
-      internalID: 830084792963895848
+      spriteID: a61f9c73ef998ec70800000000000000
+      internalID: 9000613172436660586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_6
+      name: Tiles_Dungeon 1_6
       rect:
         serializedVersion: 2
         x: 297
@@ -272,20 +275,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82fad5c7db6f2b5e0800000000000000
-      internalID: -1895181199473791192
+      spriteID: b2b723dedcd958760800000000000000
+      internalID: 7459541865582459691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_7
+      name: Tiles_Dungeon 1_7
       rect:
         serializedVersion: 2
         x: 563
@@ -293,20 +296,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2dc677d8b104d510800000000000000
-      internalID: 1572884063259643183
+      spriteID: 1a2a9b8b9b091aeb0800000000000000
+      internalID: -4710324607910305119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_8
+      name: Tiles_Dungeon 1_8
       rect:
         serializedVersion: 2
         x: 829
@@ -314,20 +317,41 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7706ba6b368adfe50800000000000000
-      internalID: 6844812154892935287
+      spriteID: 40ca693996dda5e40800000000000000
+      internalID: 5646068528379767812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_9
+      name: Tiles_Dungeon 1_9
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 551
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6b50bf7dce8ed50800000000000000
+      internalID: 6766918852497749705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Dungeon 1_10
       rect:
         serializedVersion: 2
         x: 30
@@ -335,20 +359,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42e5f65291065b740800000000000000
-      internalID: 5167141808596016676
+      spriteID: 6a5a9c956f3a64380800000000000000
+      internalID: -8987315727907576410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_10
+      name: Tiles_Dungeon 1_11
       rect:
         serializedVersion: 2
         x: 297
@@ -356,20 +380,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a5b0a38450241230800000000000000
-      internalID: 3608544748788299177
+      spriteID: 8432849edacb188f0800000000000000
+      internalID: -539943025178565816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_11
+      name: Tiles_Dungeon 1_12
       rect:
         serializedVersion: 2
         x: 563
@@ -377,20 +401,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d291687d8868d1ce0800000000000000
-      internalID: -1432841184144385747
+      spriteID: d55f60bf216b0b460800000000000000
+      internalID: 7255499192331072861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_12
+      name: Tiles_Dungeon 1_13
       rect:
         serializedVersion: 2
         x: 829
@@ -398,20 +422,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ff463f224cbbd1b0800000000000000
-      internalID: -5630699916650721289
+      spriteID: edb96dd3a07b1c480800000000000000
+      internalID: -8880615735582876706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_13
+      name: Tiles_Dungeon 1_14
       rect:
         serializedVersion: 2
         x: 30
@@ -419,20 +443,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04fc1c3e3d3466b70800000000000000
-      internalID: 8891869091627913024
+      spriteID: af0467f787c90eea0800000000000000
+      internalID: -5845500274978438918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_14
+      name: Tiles_Dungeon 1_15
       rect:
         serializedVersion: 2
         x: 297
@@ -440,20 +464,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f616b91e1b8b3830800000000000000
-      internalID: 4051985251146536690
+      spriteID: 8130ccce7ea30dfe0800000000000000
+      internalID: -1166367535704308968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_15
+      name: Tiles_Dungeon 1_16
       rect:
         serializedVersion: 2
         x: 564
@@ -461,20 +485,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a85534be7ec52e550800000000000000
-      internalID: 6188610989114742154
+      spriteID: ed977debfe945d9e0800000000000000
+      internalID: -1597289198785168930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Dungeon_16
+      name: Tiles_Dungeon 1_17
       rect:
         serializedVersion: 2
         x: 826
@@ -482,14 +506,14 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 917a98d531a92e660800000000000000
-      internalID: 7413657344569616153
+      spriteID: 631c878a09a93ac90800000000000000
+      internalID: -7159709036496502474
       vertices: []
       indices: 
       edges: []
