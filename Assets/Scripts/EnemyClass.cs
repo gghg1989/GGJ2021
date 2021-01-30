@@ -31,10 +31,13 @@ public class EnemyClass : MonoBehaviour
     public bool isIdle;
     public bool isMoving;
     
+    
 
     Vector3 currentPosition;
     Vector3 previousPosition;
 
+    //temporary or testing variables
+    public GameObject testingPlayerGameObject;
 
 
     void Start()
@@ -42,21 +45,22 @@ public class EnemyClass : MonoBehaviour
         randGen = new RandNumberManager();
         currentPosition = transform.position;
         previousPosition = currentPosition;
+
+        testingPlayerGameObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (!IsTheEnemyMoving())
-        {
-            IdleMovement(DetermineIdleMovementTarget());
-        }
-        
-
+        MoveToPoint(testingPlayerGameObject.transform.position);
 
     }
 
+    void MoveToPoint(Vector2 targetPoint)
+    {
+        transform.position = Vector2.MoveTowards(transform.position, targetPoint, enemySpeed);
+    }
 
     void GetPlayerData()
     {
