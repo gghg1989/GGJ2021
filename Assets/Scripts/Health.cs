@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     private int hearts;
     public PlayerClass player;
 
-    public Image[] heartDisplay;
+    public GameObject[] heartDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +29,11 @@ public class Health : MonoBehaviour
         {
             if (i < hearts)
             {
-                heartDisplay[i].enabled = true;
+                heartDisplay[i].SetActive(true);
             }
             else
             {
-                heartDisplay[i].enabled = false;
+                heartDisplay[i].SetActive(false);
             }
         }
     }
