@@ -4,58 +4,58 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3968182364789597635
-    second: Character_SpriteSheet_0
+    second: playerHead_Front
   - first:
       213: 4587666066383894207
-    second: Character_SpriteSheet_1
+    second: PlayerBody_Front
   - first:
       213: 6454227986848301601
-    second: Character_SpriteSheet_2
+    second: PlayerArm_Front_L
   - first:
       213: -3674686839259255706
-    second: Character_SpriteSheet_3
+    second: PlayerArm_Front_R
   - first:
       213: 1841653929773381103
-    second: Character_SpriteSheet_4
+    second: PlayerLeg_Front_L
   - first:
       213: 1299626203083564264
-    second: Character_SpriteSheet_5
+    second: PlayerLeg_Front_R
   - first:
       213: 4241633468348594140
-    second: Character_SpriteSheet_6
+    second: playerHead_Side
   - first:
       213: -7556729986977294602
-    second: Character_SpriteSheet_7
+    second: PlayerBody_Side
   - first:
       213: 8276834685723025959
-    second: Character_SpriteSheet_8
+    second: PlayerArm_Side_L
   - first:
       213: 725130494271647534
-    second: Character_SpriteSheet_9
+    second: PlayerArm_Side_R
   - first:
       213: -676850138257642730
-    second: Character_SpriteSheet_10
+    second: PlayerLeg_Side_L
   - first:
       213: -7902739706456451877
-    second: Character_SpriteSheet_11
+    second: PlayerLeg_Side_R
   - first:
       213: -115837940102341915
-    second: Character_SpriteSheet_12
+    second: playerHead_Back
   - first:
       213: -6246271817960646373
-    second: Character_SpriteSheet_13
+    second: PlayerBody_Back
   - first:
       213: 1607868690767927948
-    second: Character_SpriteSheet_14
+    second: PlayerArm_Back_L
   - first:
       213: 5948598769290663945
-    second: Character_SpriteSheet_15
+    second: PlayerArm_Back_R
   - first:
       213: 6194918281461035763
-    second: Character_SpriteSheet_16
+    second: PlayerLeg_Back_L
   - first:
       213: -9080679272877997824
-    second: Character_SpriteSheet_17
+    second: PlayerLeg_Back_R
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_SpriteSheet_0
+      name: playerHead_Front
       rect:
         serializedVersion: 2
         x: 35
@@ -149,7 +149,7 @@ TextureImporter:
         width: 219
         height: 233
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,7 +162,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_1
+      name: PlayerBody_Front
       rect:
         serializedVersion: 2
         x: 294
@@ -170,7 +170,7 @@ TextureImporter:
         width: 140
         height: 172
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,7 +183,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_2
+      name: PlayerArm_Front_L
       rect:
         serializedVersion: 2
         x: 487
@@ -191,7 +191,7 @@ TextureImporter:
         width: 68
         height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,7 +204,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_3
+      name: PlayerArm_Front_R
       rect:
         serializedVersion: 2
         x: 583
@@ -212,7 +212,7 @@ TextureImporter:
         width: 67
         height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,7 +225,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_4
+      name: PlayerLeg_Front_L
       rect:
         serializedVersion: 2
         x: 727
@@ -233,7 +233,7 @@ TextureImporter:
         width: 46
         height: 125
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,7 +246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_5
+      name: PlayerLeg_Front_R
       rect:
         serializedVersion: 2
         x: 814
@@ -254,7 +254,7 @@ TextureImporter:
         width: 46
         height: 125
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,7 +267,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_6
+      name: playerHead_Side
       rect:
         serializedVersion: 2
         x: 33
@@ -275,7 +275,7 @@ TextureImporter:
         width: 242
         height: 232
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,7 +288,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_7
+      name: PlayerBody_Side
       rect:
         serializedVersion: 2
         x: 293
@@ -296,7 +296,7 @@ TextureImporter:
         width: 169
         height: 187
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,7 +309,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_8
+      name: PlayerArm_Side_L
       rect:
         serializedVersion: 2
         x: 525
@@ -317,7 +317,7 @@ TextureImporter:
         width: 57
         height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -330,7 +330,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_9
+      name: PlayerArm_Side_R
       rect:
         serializedVersion: 2
         x: 609
@@ -338,7 +338,7 @@ TextureImporter:
         width: 86
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,7 +351,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_10
+      name: PlayerLeg_Side_L
       rect:
         serializedVersion: 2
         x: 742
@@ -359,7 +359,7 @@ TextureImporter:
         width: 50
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -372,7 +372,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_11
+      name: PlayerLeg_Side_R
       rect:
         serializedVersion: 2
         x: 831
@@ -380,7 +380,7 @@ TextureImporter:
         width: 51
         height: 126
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -393,7 +393,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_12
+      name: playerHead_Back
       rect:
         serializedVersion: 2
         x: 52
@@ -401,7 +401,7 @@ TextureImporter:
         width: 231
         height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -414,7 +414,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_13
+      name: PlayerBody_Back
       rect:
         serializedVersion: 2
         x: 328
@@ -422,7 +422,7 @@ TextureImporter:
         width: 182
         height: 177
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -435,7 +435,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_14
+      name: PlayerArm_Back_L
       rect:
         serializedVersion: 2
         x: 543
@@ -443,7 +443,7 @@ TextureImporter:
         width: 47
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -456,7 +456,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_15
+      name: PlayerArm_Back_R
       rect:
         serializedVersion: 2
         x: 670
@@ -464,7 +464,7 @@ TextureImporter:
         width: 47
         height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,7 +477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_16
+      name: PlayerLeg_Back_L
       rect:
         serializedVersion: 2
         x: 768
@@ -485,7 +485,7 @@ TextureImporter:
         width: 46
         height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,7 +498,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_SpriteSheet_17
+      name: PlayerLeg_Back_R
       rect:
         serializedVersion: 2
         x: 848
@@ -506,7 +506,7 @@ TextureImporter:
         width: 46
         height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
