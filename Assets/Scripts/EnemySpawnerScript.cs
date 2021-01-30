@@ -33,7 +33,8 @@ public class EnemySpawnerScript : MonoBehaviour
 
     //testing or temporary variables
     public GameObject tempSpawnLocation;
-
+    int tempSpawnCounter;
+    public GameObject temporaryThePlayer;
 
 
     //game object and variable declaration
@@ -57,9 +58,16 @@ public class EnemySpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawnTimer.GetTime() > spawnInterval)
+        if(spawnTimer.GetTime() > spawnInterval && tempSpawnCounter < enemiesInObjectPool) //spawncounter for testing only
         {
             SpawnEnemy(DetermineSpawnLocation());
+
+            spawnTimer.ResetTimer();
+
+            //for testing only
+            tempSpawnCounter++;
+
+
         }
     }
 
