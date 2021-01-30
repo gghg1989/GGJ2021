@@ -48,6 +48,9 @@ TagManager:
   - name: Objects
     uniqueID: 2102285027
     locked: 0
+  - name: Decorative
+    uniqueID: 1532177979
+    locked: 0
   - name: Player
     uniqueID: 586785535
     locked: 0
