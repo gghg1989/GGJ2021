@@ -37,6 +37,11 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         controls.Gameplay.Enable();
 
         movePoint.parent = null;
+
+        /*controls.Gameplay.Movement.performed += context => OnMovement(context);
+        controls.Gameplay.Movement.canceled += context => OnMovement(context);*/
+
+        controls.Gameplay.Movement.actionMap.actionTriggered += context => OnActionTriggered(context);
     }
 
     // Update is called once per frame
@@ -141,6 +146,23 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                 attackEnabled = false;
                 attackCountdown = 20;
             }
+        }
+    }
+
+    void OnActionTriggered(InputAction.CallbackContext context)
+    {
+        string action = context.action.name;
+
+        switch(action)
+        {
+            case "Movement":
+                OnMovement(context);
+                break;
+            case "Use/Interact":
+                OnUseInteract(context);
+                break;
+            default:
+                break;
         }
     }
 }
