@@ -20,11 +20,11 @@ public class @ControlSystem : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""723b3399-94f9-4cdd-8550-40d62b372b7f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
+                    ""interactions"": ""Press(pressPoint=0.1)""
                 },
                 {
                     ""name"": ""Use/Interact"",
@@ -39,7 +39,7 @@ public class @ControlSystem : IInputActionCollection, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""e4f0edfd-371f-4b5a-83f6-bc94090800dd"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -94,7 +94,7 @@ public class @ControlSystem : IInputActionCollection, IDisposable
                 {
                     ""name"": ""ArrowKeys"",
                     ""id"": ""8f9174ce-fe74-4881-8d0e-3dcafef28cd4"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
