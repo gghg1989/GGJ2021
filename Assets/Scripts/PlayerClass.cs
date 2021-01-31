@@ -22,6 +22,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     public LayerMask CollisionLayer;
 
+    private bool FacingRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,18 +59,30 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-
+        
         if (Vector2.Distance(transform.position, movePoint.position) <= 0.05f)
         {
             Vector2 moveVector = context.ReadValue<Vector2>();
+            Debug.Log(moveVector);
+
+            // Flip player side animation
+            if (moveVector.x < 0 && FacingRight)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                FacingRight = false;
+            }
+            else if (moveVector.x > 0 && !FacingRight)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                FacingRight = true;
+            }
 
             if (Mathf.Abs(moveVector.x) == 1f)
             {
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveVector.x, 0f, 0f), 0.2f, CollisionLayer))
                 {
                     // Update player direction and load relevant animation
-                    transform.localScale = new Vector3(transform.localScale.x * moveVector.x, transform.localScale.y, transform.localScale.z);
-                    GetComponentInChildren<Animator>().SetFloat("DirX", moveVector.x);
+                    GetComponentInChildren<Animator>().SetFloat("DirX", 1f);
                     GetComponentInChildren<Animator>().SetFloat("DirY", 0f);
                     GetComponentInChildren<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(moveVector.x, 0f, 0f);
@@ -85,13 +99,12 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                     movePoint.position += new Vector3(0f, moveVector.y, 0f);
                 }
             }
+
+            if (moveVector.y == 0 && moveVector.x == 0)
+            {
+                GetComponentInChildren<Animator>().SetBool("Idle", true);
+            }
         }
-        //else
-        //{
-        //    GetComponent<Animator>().SetBool("Idle", true);
-        //    GetComponent<Animator>().SetFloat("DirX", 0f);
-        //    GetComponent<Animator>().SetFloat("DirY", 0f);
-        //}
     }
 
     public void OnUseInteract(InputAction.CallbackContext context)
