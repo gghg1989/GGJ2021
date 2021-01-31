@@ -127,6 +127,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         {
             soulCount += 1;
             healthDisplay.UpdateSoulCount(soulCount);
+            Destroy(collision.gameObject);
         }
     }
 
