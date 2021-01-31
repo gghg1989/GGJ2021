@@ -1,0 +1,536 @@
+fileFormatVersion: 2
+guid: 41ec5184936e23141927e8ee6e0e71ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3968182364789597635
+    second: playerHead_Front
+  - first:
+      213: 4587666066383894207
+    second: PlayerBody_Front
+  - first:
+      213: 6454227986848301601
+    second: PlayerArm_Front_L
+  - first:
+      213: -3674686839259255706
+    second: PlayerArm_Front_R
+  - first:
+      213: 1841653929773381103
+    second: PlayerLeg_Front_L
+  - first:
+      213: 1299626203083564264
+    second: PlayerLeg_Front_R
+  - first:
+      213: 4241633468348594140
+    second: playerHead_Side
+  - first:
+      213: -7556729986977294602
+    second: PlayerBody_Side
+  - first:
+      213: 8276834685723025959
+    second: PlayerArm_Side_L
+  - first:
+      213: 725130494271647534
+    second: PlayerArm_Side_R
+  - first:
+      213: -676850138257642730
+    second: PlayerLeg_Side_L
+  - first:
+      213: -7902739706456451877
+    second: PlayerLeg_Side_R
+  - first:
+      213: -115837940102341915
+    second: playerHead_Back
+  - first:
+      213: -6246271817960646373
+    second: PlayerBody_Back
+  - first:
+      213: 1607868690767927948
+    second: PlayerArm_Back_L
+  - first:
+      213: 5948598769290663945
+    second: PlayerArm_Back_R
+  - first:
+      213: 6194918281461035763
+    second: PlayerLeg_Back_L
+  - first:
+      213: -9080679272877997824
+    second: PlayerLeg_Back_R
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 350
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: playerHead_Front
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 647
+        width: 219
+        height: 233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a1fbed92f2ee8c0800000000000000
+      internalID: -3968182364789597635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerBody_Front
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 659
+        width: 140
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb6fcea1bf9aaaf30800000000000000
+      internalID: 4587666066383894207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerArm_Front_L
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 692
+        width: 68
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1224a777826029950800000000000000
+      internalID: 6454227986848301601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerArm_Front_R
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 692
+        width: 67
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c262df9c3e00dc0800000000000000
+      internalID: -3674686839259255706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLeg_Front_L
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 694
+        width: 46
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5385bdd7ede8910800000000000000
+      internalID: 1841653929773381103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLeg_Front_R
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 694
+        width: 46
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4e59f5523390210800000000000000
+      internalID: 1299626203083564264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerHead_Side
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 394
+        width: 242
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd773549a2f4dda30800000000000000
+      internalID: 4241633468348594140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerBody_Side
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 386
+        width: 169
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f61da63d1a112790800000000000000
+      internalID: -7556729986977294602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerArm_Side_L
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 412
+        width: 57
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722272b4b493dd270800000000000000
+      internalID: 8276834685723025959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerArm_Side_R
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 427
+        width: 86
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f6dd6b75e201a00800000000000000
+      internalID: 725130494271647534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLeg_Side_L
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 412
+        width: 50
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61baaf6a2685b96f0800000000000000
+      internalID: -676850138257642730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLeg_Side_R
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 413
+        width: 51
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4d9448b14d35290800000000000000
+      internalID: -7902739706456451877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerHead_Back
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 50
+        width: 231
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eadfa8d106746ef0800000000000000
+      internalID: -115837940102341915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerBody_Back
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 78
+        width: 182
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b191cef20e8c059a0800000000000000
+      internalID: -6246271817960646373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerArm_Back_L
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 109
+        width: 47
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ad1be2e0c405610800000000000000
+      internalID: 1607868690767927948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerArm_Back_R
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 115
+        width: 47
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90855ea401bad8250800000000000000
+      internalID: 5948598769290663945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLeg_Back_L
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 122
+        width: 46
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2fe0bda55c8f550800000000000000
+      internalID: 6194918281461035763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLeg_Back_R
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 122
+        width: 46
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001cad41052faf180800000000000000
+      internalID: -9080679272877997824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
