@@ -77,6 +77,8 @@ public class EnemyClass : MonoBehaviour
     Transform movePoint;
     Vector2 movePointOffset;
 
+    public Animator dragonAnimator;
+
     void Start()
     {
         randGen = new RandNumberManager();
@@ -86,6 +88,7 @@ public class EnemyClass : MonoBehaviour
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         targetPosition = transform.position;
         isMoving = false;
+        dragonAnimator = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -122,30 +125,40 @@ public class EnemyClass : MonoBehaviour
                     case direction.north:
                         targetPosition = new Vector2(transform.position.x, transform.position.y + moveIncrement);
                         isMoving = true;
-                        break;
+                        dragonAnimator.SetFloat("DirX", 0f);
+                        dragonAnimator.SetFloat("DirY", 1f);
+
+                    break;
                     case direction.south:
                         targetPosition = new Vector2(transform.position.x, transform.position.y - moveIncrement);
                         isMoving = true;
-                        break;
+                        dragonAnimator.SetFloat("DirX", 0f);
+                        dragonAnimator.SetFloat("DirY", -1f);
+                    break;
                     case direction.east:
                         targetPosition = new Vector2(transform.position.x + moveIncrement, transform.position.y);
                         isMoving = true;
-                        break;
+                        dragonAnimator.SetFloat("DirX", 1f);
+                        dragonAnimator.SetFloat("DirY", 0f);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    break;
                     case direction.west:
                         targetPosition = new Vector2(transform.position.x - moveIncrement, transform.position.y);
                         isMoving = true;
-                        break;
+                        dragonAnimator.SetFloat("DirX", -1f);
+                        dragonAnimator.SetFloat("DirY", 0f);
+                    transform.localScale = new Vector3(transform.localScale.x* -1, transform.localScale.y, transform.localScale.z);
+                    break;
                     default:
                         targetPosition = transform.position;
                         isMoving = false;
                         break;
                 }
+            
         }
 
         if (!IsValidMove(moveDirection))
         {
-            //isMoving = false;
-            //targetPosition = currentPosition;
             numberOfInvalidMoves++;
         }
 
@@ -194,11 +207,24 @@ public class EnemyClass : MonoBehaviour
             numberOfInvalidMoves = 0;
         }
 
-        if (transform.position == targetPosition) 
+        if (transform.position == targetPosition)
+        {
             isMoving = false;
-        
-        if(isMoving)
+            
+        }
+
+
+
+        if (isMoving)
+        {
             MoveToPoint(targetPosition);
+            //dragonAnimator.SetBool("isMovingRight", false);
+            //dragonAnimator.SetBool("isMovingUp", false);
+            //dragonAnimator.SetBool("isMovingDown", false);
+            //dragonAnimator.SetBool("isMovingLeft", false);
+        }
+            
+
         
     }
 
@@ -296,91 +322,11 @@ public class EnemyClass : MonoBehaviour
             return validMove;
     }
 
-    void GetUnStuck()
-    {
-        if (!Physics2D.OverlapCircle(transform.position + new Vector3(moveIncrement, 0f), colliderCheckRadius, collisionLayer))// if the collider doesn't hit anything, then move toward the player along the x axis
-        {
-            if(randGen.GenerateRandomBool()) 
-                targetPosition = transform.position + Vector3.right;
-            
-            else 
-                targetPosition = transform.position + Vector3.right;
-        }
-
-        if (!Physics2D.OverlapCircle(transform.position + new Vector3(0f, moveIncrement), colliderCheckRadius, collisionLayer)) // move in y axis as above
-        {
-            if(randGen.GenerateRandomBool()) 
-                targetPosition = transform.position + Vector3.up;
-            
-            else 
-                targetPosition = transform.position + Vector3.down;
-        }
-
-
-
-    }
-
-    void GetPlayerData()
-    {
-        //receives player data
-    }
-
     void EnemyKilled()
     {
         //set the game objec inactive to return to object pool
 
         gameObject.SetActive(false);
-    }
-
-    void IdleMovement()
-    {
-
-    }
-
-    Vector3 DetermineIdleMovementTarget()
-    {
-        Vector3 targetOffset;
-        Vector3 worldTarget;
-
-        //randomly generate a direction to move toward
-        targetOffset.x = randGen.GenerateRandomWithinLimits(-1, 1);
-        targetOffset.y = randGen.GenerateRandomWithinLimits(-1, 1);
-        targetOffset.z = 0f;
-
-        //multiply the direction (since it's normalized) by how far you want the idle move to happen
-        targetOffset = targetOffset * idleMoveRadius;
-        Debug.Log("target offset" + targetOffset);
-
-
-        //take the current position and add the direction.
-       // worldTarget = transform.position + targetOffset;
-       // Debug.Log("world target" + worldTarget);
-
-        return targetOffset;
-
-    }
-
-    bool IsTheEnemyMoving()
-    {
-        bool isMoving;
-
-        currentPosition = transform.position;
-
-        if (currentPosition == previousPosition)
-        {
-            isMoving = false;
-        }
-        else isMoving = true;
-
-        previousPosition = currentPosition;
-
-        return isMoving;
-
-    }
-
-    void ChasePlayer(Vector2 playerLocation)
-    {
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
