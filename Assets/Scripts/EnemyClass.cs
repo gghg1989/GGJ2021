@@ -20,6 +20,15 @@ public class EnemyClass : MonoBehaviour
         doesntCare, //ignores the player, and just idly moves around
     }
     
+    public enum direction
+    {
+        north,
+        south,
+        east,
+        west,
+        nowhere
+    }
+
     public enemyType thisEnemysType;
     public enemyAttitude thisEnemysAttitude;
 
@@ -28,8 +37,10 @@ public class EnemyClass : MonoBehaviour
     public float idleSpeed; // speed used for passive and doesn't care movement
 
     //enemy stats
-    public float enemyPower;
+    public int enemyPower;
     public float enemyLootDropChance;
+    public int enemyHealth;
+    public float enemyDetectDistance;
 
     //random number utility class
     RandNumberManager randGen;
@@ -38,9 +49,11 @@ public class EnemyClass : MonoBehaviour
     public bool isChasingPlayer;
     public float idleMoveRadius; // a misnomer, this is the value we are multiplying a random vector by to get the radius of idle movement
     public bool isIdle;
-    public bool isMoving;
+    [SerializeField] bool isMoving;
+    public int numberOfInvalidMoves;
+    public int maxInvalidMoves;
 
-    public float moveIncrement; //the base move increment the enemy will take. 
+    public float moveIncrement; //the base move increment the enemy will take, this is the center to center distance of the tiles
     public float unStuckMove; // how much the enemy moves to get un stuck
 
 
@@ -53,6 +66,8 @@ public class EnemyClass : MonoBehaviour
 
     Vector3 currentPosition;
     Vector3 previousPosition;
+
+    Vector3 targetPosition;
 
     //reference to the player game object
     public GameObject playerGameObject;
@@ -69,14 +84,20 @@ public class EnemyClass : MonoBehaviour
         previousPosition = currentPosition;
 
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
-        
+        targetPosition = transform.position;
+        isMoving = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        currentPosition = transform.position;
+
         MoveTowardPlayer();
+
+        previousPosition = currentPosition;
+        
 
     }
 
@@ -87,27 +108,216 @@ public class EnemyClass : MonoBehaviour
 
     void MoveTowardPlayer()
     {
-        Vector2 playerDirection;
-        currentPosition = transform.position;
-        playerDirection = transform.position - playerGameObject.transform.position;
 
-        //are we at the player's location?
-        if(transform.position != playerMovePoint.transform.position)
+        direction moveDirection;
+
+        int randomDirection;
+
+        moveDirection = DeterminePlayerDirection();
+
+        if (IsValidMove(moveDirection) && !isMoving)
         {
-            if (!Physics2D.OverlapCircle(transform.position + new Vector3(moveIncrement, 0f), colliderCheckRadius, collisionLayer)) // if the collider doesn't hit anything, then move toward the player along the x axis
-            {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerGameObject.transform.position.x, transform.position.y), enemySpeed);
-            }
-
-            //move along the y axis
-            if (!Physics2D.OverlapCircle(transform.position + new Vector3(0f, moveIncrement), colliderCheckRadius, collisionLayer)) // move in y axis as above
-            {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, playerGameObject.transform.position.y), enemySpeed);
-            }
+                switch (moveDirection)
+                {
+                    case direction.north:
+                        targetPosition = new Vector2(transform.position.x, transform.position.y + moveIncrement);
+                        isMoving = true;
+                        break;
+                    case direction.south:
+                        targetPosition = new Vector2(transform.position.x, transform.position.y - moveIncrement);
+                        isMoving = true;
+                        break;
+                    case direction.east:
+                        targetPosition = new Vector2(transform.position.x + moveIncrement, transform.position.y);
+                        isMoving = true;
+                        break;
+                    case direction.west:
+                        targetPosition = new Vector2(transform.position.x - moveIncrement, transform.position.y);
+                        isMoving = true;
+                        break;
+                    default:
+                        targetPosition = transform.position;
+                        isMoving = false;
+                        break;
+                }
         }
 
-        previousPosition = currentPosition;
+        if (!IsValidMove(moveDirection))
+        {
+            //isMoving = false;
+            //targetPosition = currentPosition;
+            numberOfInvalidMoves++;
+        }
+
+        if (!isMoving && numberOfInvalidMoves > maxInvalidMoves)
+        {
+            randomDirection = randGen.GenerateRandomInt(1, 4);
+
+            switch (randomDirection)
+            {
+                case 1: //north
+                    if (IsValidMove(direction.north))
+                    {
+                        targetPosition = new Vector2(transform.position.x, transform.position.y + moveIncrement);
+                        isMoving = true;
+                    }
+                    break;
+
+                case 2: //south
+                    if (IsValidMove(direction.south))
+                    {
+                        targetPosition = new Vector2(transform.position.x, transform.position.y - moveIncrement);
+                        isMoving = true;
+                    }
+                    break;
+                case 3: //east
+                    if (IsValidMove(direction.east))
+                    {
+                        targetPosition = new Vector2(transform.position.x + moveIncrement, transform.position.y);
+                        isMoving = true;
+                    }
+                    break;
+                case 4: //west
+                    if (IsValidMove(direction.west))
+                    {
+                        targetPosition = new Vector2(transform.position.x - moveIncrement, transform.position.y);
+                        isMoving = true;
+                    }
+                    break;
+
+                default:
+                    targetPosition = transform.position;
+                    isMoving = false;
+                    break;
+            }
+            
+            numberOfInvalidMoves = 0;
+        }
+
+        if (transform.position == targetPosition) 
+            isMoving = false;
         
+        if(isMoving)
+            MoveToPoint(targetPosition);
+        
+    }
+
+    direction DeterminePlayerDirection()
+    {
+        direction enemyMoveDirection = direction.nowhere;
+
+        Vector3 playerDirection;
+
+        playerDirection = playerGameObject.transform.position - gameObject.transform.position;
+
+
+        if (Mathf.Abs(playerDirection.x) >= Mathf.Abs(playerDirection.y))
+        {
+
+            if (playerDirection.x >= 0)
+            {
+                enemyMoveDirection = direction.east;
+
+            }
+
+            if (playerDirection.x < 0)
+            {
+                enemyMoveDirection = direction.west;
+            }
+
+        }
+
+
+
+
+        if (Mathf.Abs(playerDirection.x) < Mathf.Abs(playerDirection.y))
+        {
+
+            if (playerDirection.y >= 0)
+            {
+                enemyMoveDirection = direction.north;
+            }
+
+            if (playerDirection.y < 0)
+            {
+                enemyMoveDirection = direction.south;
+            }
+
+        }
+
+        if (playerDirection.magnitude > enemyDetectDistance)
+        {
+            enemyMoveDirection = direction.nowhere;
+        }
+
+        return enemyMoveDirection;
+    }
+
+    bool IsValidMove(direction targetDirection)
+    {
+        bool validMove = false;
+
+        switch (targetDirection)
+        {
+            case direction.north:
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(0f, moveIncrement), colliderCheckRadius, collisionLayer)) //check the north
+                {
+                    validMove = true;
+                }
+                break;
+
+            case direction.south:
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(0f, -moveIncrement), colliderCheckRadius, collisionLayer)) //check the north
+                {
+                    validMove = true;
+                }
+                break;
+            case direction.east:
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(moveIncrement, 0f), colliderCheckRadius, collisionLayer)) //check the north
+                {
+                    validMove = true;
+                }
+                break;
+
+            case direction.west:
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(moveIncrement, 0f), colliderCheckRadius, collisionLayer)) //check the north
+                {
+                    validMove = true;
+                }
+                break;
+            default:
+                validMove = false;
+                break;
+        }
+
+
+
+
+            return validMove;
+    }
+
+    void GetUnStuck()
+    {
+        if (!Physics2D.OverlapCircle(transform.position + new Vector3(moveIncrement, 0f), colliderCheckRadius, collisionLayer))// if the collider doesn't hit anything, then move toward the player along the x axis
+        {
+            if(randGen.GenerateRandomBool()) 
+                targetPosition = transform.position + Vector3.right;
+            
+            else 
+                targetPosition = transform.position + Vector3.right;
+        }
+
+        if (!Physics2D.OverlapCircle(transform.position + new Vector3(0f, moveIncrement), colliderCheckRadius, collisionLayer)) // move in y axis as above
+        {
+            if(randGen.GenerateRandomBool()) 
+                targetPosition = transform.position + Vector3.up;
+            
+            else 
+                targetPosition = transform.position + Vector3.down;
+        }
+
+
+
     }
 
     void GetPlayerData()
@@ -171,6 +381,25 @@ public class EnemyClass : MonoBehaviour
     void ChasePlayer(Vector2 playerLocation)
     {
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerClass thePlayer;
+        
+        if(collision.gameObject.tag == "Player")
+        {
+            thePlayer = collision.gameObject.GetComponent<PlayerClass>();
+            if (thePlayer.attackEnabled)
+            {
+                enemyHealth -= 1;
+                if (enemyHealth <= 0)
+                {
+                    EnemyKilled();
+                }
+            }
+        }
+        
     }
 
 
