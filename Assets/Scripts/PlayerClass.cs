@@ -57,13 +57,10 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
+
         if (Vector2.Distance(transform.position, movePoint.position) <= 0.05f)
         {
             Vector2 moveVector = context.ReadValue<Vector2>();
-
-            GetComponent<Animator>().SetBool("Idle", true);
-            GetComponent<Animator>().SetFloat("DirX", 0f);
-            GetComponent<Animator>().SetFloat("DirY", 0f);
 
             if (Mathf.Abs(moveVector.x) == 1f)
             {
@@ -71,9 +68,9 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                 {
                     // Update player direction and load relevant animation
                     transform.localScale = new Vector3(transform.localScale.x * moveVector.x, transform.localScale.y, transform.localScale.z);
-                    GetComponent<Animator>().SetFloat("DirX", moveVector.x);
-                    GetComponent<Animator>().SetFloat("DirY", 0f);
-                    GetComponent<Animator>().SetBool("Idle", false);
+                    GetComponentInChildren<Animator>().SetFloat("DirX", moveVector.x);
+                    GetComponentInChildren<Animator>().SetFloat("DirY", 0f);
+                    GetComponentInChildren<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(moveVector.x, 0f, 0f);
                 }
             }
@@ -82,13 +79,19 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVector.y, 0f), 0.2f, CollisionLayer))
                 {
                     // Update player direction and load relevant animation
-                    GetComponent<Animator>().SetFloat("DirX", 0f);
-                    GetComponent<Animator>().SetFloat("DirY", moveVector.y);
-                    GetComponent<Animator>().SetBool("Idle", false);
+                    GetComponentInChildren<Animator>().SetFloat("DirX", 0f);
+                    GetComponentInChildren<Animator>().SetFloat("DirY", moveVector.y);
+                    GetComponentInChildren<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(0f, moveVector.y, 0f);
                 }
             }
         }
+        //else
+        //{
+        //    GetComponent<Animator>().SetBool("Idle", true);
+        //    GetComponent<Animator>().SetFloat("DirX", 0f);
+        //    GetComponent<Animator>().SetFloat("DirY", 0f);
+        //}
     }
 
     public void OnUseInteract(InputAction.CallbackContext context)
