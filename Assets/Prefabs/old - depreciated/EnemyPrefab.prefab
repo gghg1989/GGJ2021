@@ -136,6 +136,7 @@ MonoBehaviour:
   isIdle: 0
   isMoving: 0
   moveIncrement: 0.2
+  unStuckMove: 0
   colliderCheckRadius: 0.35
   collisionLayer:
     serializedVersion: 2
