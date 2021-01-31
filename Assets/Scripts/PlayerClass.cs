@@ -59,11 +59,18 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        
+        Vector2 moveVector = context.ReadValue<Vector2>();
+        if (moveVector.x == 0 && moveVector.y == 0)
+        {
+            GetComponentInChildren<Animator>().SetBool("Idle", true);
+        }
+        else
+        {
+            GetComponentInChildren<Animator>().SetBool("Idle", false);
+        }
+
         if (Vector2.Distance(transform.position, movePoint.position) <= 0.05f)
         {
-            Vector2 moveVector = context.ReadValue<Vector2>();
-            Debug.Log(moveVector);
 
             // Flip player side animation
             if (moveVector.x < 0 && FacingRight)
@@ -84,7 +91,6 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                     // Update player direction and load relevant animation
                     GetComponentInChildren<Animator>().SetFloat("DirX", 1f);
                     GetComponentInChildren<Animator>().SetFloat("DirY", 0f);
-                    GetComponentInChildren<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(moveVector.x, 0f, 0f);
                 }
             }
@@ -95,15 +101,10 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                     // Update player direction and load relevant animation
                     GetComponentInChildren<Animator>().SetFloat("DirX", 0f);
                     GetComponentInChildren<Animator>().SetFloat("DirY", moveVector.y);
-                    GetComponentInChildren<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(0f, moveVector.y, 0f);
                 }
             }
 
-            if (moveVector.y == 0 && moveVector.x == 0)
-            {
-                GetComponentInChildren<Animator>().SetBool("Idle", true);
-            }
         }
     }
 
