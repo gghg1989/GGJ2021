@@ -127,6 +127,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
             //Player gains a life, update display
             health += 1;
             healthDisplay.UpdateHealth(1);
+            Destroy(collision.gameObject);
         }
 
         if(collision.gameObject.tag == "SuperPower")
