@@ -313,7 +313,7 @@ public class EnemyClass : MonoBehaviour
                 break;
 
             case direction.west:
-                if (!Physics2D.OverlapCircle(transform.position + new Vector3(-moveIncrement, 0f), colliderCheckRadius, collisionLayer)) //check the north
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(moveIncrement, 0f), colliderCheckRadius, collisionLayer)) //check the north
                 {
                     validMove = true;
                 }
@@ -342,16 +342,12 @@ public class EnemyClass : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        
         PlayerClass thePlayer;
         
         if(collision.gameObject.tag == "Player")
         {
-            
-
             thePlayer = collision.gameObject.GetComponent<PlayerClass>();
             if (thePlayer.attackEnabled)
             {
@@ -360,10 +356,6 @@ public class EnemyClass : MonoBehaviour
                 {
                     EnemyKilled();
                 }
-            }
-            else
-            {
-                thePlayer.TakeDamage();
             }
         }
         

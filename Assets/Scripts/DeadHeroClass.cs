@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeadHeroClass : MonoBehaviour
-{
+{ 
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class DeadHeroClass : MonoBehaviour
         
     }
 
-    private void OnColliderEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
@@ -24,9 +25,13 @@ public class DeadHeroClass : MonoBehaviour
 
             if(player.soulCount == player.maxSouls)
             {
-                //Revive Animation
-                //LoadScene();
+                GetComponentInChildren<Animator>().SetBool("Revived", true);
             }
         }
+    }
+
+    public void DeadHeroRevived()
+    {
+        SceneManager.LoadScene(2);
     }
 }
