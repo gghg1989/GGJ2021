@@ -14,6 +14,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     public bool attackEnabled = false;
     private int attackCountdown = 20;
     public int soulCount;
+    public int attackPower;
 
     public Transform movePoint;
 
@@ -113,6 +114,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         if(collision.gameObject.tag == "Soul")
         {
             soulCount += 1;
+            healthDisplay.UpdateSoulCount(soulCount);
         }
     }
 
