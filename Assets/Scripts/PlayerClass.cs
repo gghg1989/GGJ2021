@@ -15,6 +15,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     private int attackCountdown = 20;
     public int soulCount;
     public int attackPower;
+    public int maxSouls;
 
     public Transform movePoint;
 
@@ -24,9 +25,13 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     private bool FacingRight = true;
 
+    public GameObject[] Souls;
+
     // Start is called before the first frame update
     void Start()
     {
+        maxSouls = Souls.Length;
+
         //if no controls, create new one
         if (controls == null)
         {
@@ -60,6 +65,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     public void OnMovement(InputAction.CallbackContext context)
     {
         Vector2 moveVector = context.ReadValue<Vector2>();
+
         if (moveVector.x == 0 && moveVector.y == 0)
         {
             GetComponentInChildren<Animator>().SetBool("Idle", true);
@@ -115,35 +121,68 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //To be changed if we have a different damage mechanic in mind
-        if(collision.gameObject.tag == "Enemy" && !attackEnabled)
-        {
-            //Take Damage for now is default 1 damage an enemy
-            TakeDamage();
-        }
+        string temp = collision.gameObject.tag;
 
-        if(collision.gameObject.tag == "ExtraLife")
+        switch(temp)
         {
-            //Player gains a life, update display
-            health += 1;
-            healthDisplay.UpdateHealth(1);
-            Destroy(collision.gameObject);
+            case "Enemy":
+                if(!attackEnabled)
+                {
+                    TakeDamage();
+                }
+                break;
+            case "ExtraLife":
+                health += 1;
+                healthDisplay.UpdateHealth(1);
+                Destroy(collision.gameObject);
+                break;
+            case "SuperPower":
+                attackEnabled = true;
+                break;
+            case "Soul":
+                soulCount += 1;
+                healthDisplay.UpdateSoulCount(soulCount);
+                Destroy(collision.gameObject);
+                break;
+            case "DeadHero":
+                if(soulCount == maxSouls)
+                {
+                    //Disable Player
+                }
+                break;
+            default:
+                break;
         }
+        
+        ////To be changed if we have a different damage mechanic in mind
+        //if(collision.gameObject.tag == "Enemy" && !attackEnabled)
+        //{
+        //    //Take Damage for now is default 1 damage an enemy
+        //    TakeDamage();
+        //}
 
-        if(collision.gameObject.tag == "SuperPower")
-        {
-            //Attack is Enabled, Enemies can check for this when colliding with player.
-            //In update, AttackCountdown is called to have a timer for how long this attack state is enabled.
-            attackEnabled = true;
-        }
+        //if(collision.gameObject.tag == "ExtraLife")
+        //{
+        //    //Player gains a life, update display
+        //    health += 1;
+        //    healthDisplay.UpdateHealth(1);
+        //    Destroy(collision.gameObject);
+        //}
 
-        //Add to soul count
-        if(collision.gameObject.tag == "Soul")
-        {
-            soulCount += 1;
-            healthDisplay.UpdateSoulCount(soulCount);
-            Destroy(collision.gameObject);
-        }
+        //if(collision.gameObject.tag == "SuperPower")
+        //{
+        //    //Attack is Enabled, Enemies can check for this when colliding with player.
+        //    //In update, AttackCountdown is called to have a timer for how long this attack state is enabled.
+        //    attackEnabled = true;
+        //}
+
+        ////Add to soul count
+        //if(collision.gameObject.tag == "Soul")
+        //{
+        //    soulCount += 1;
+        //    healthDisplay.UpdateSoulCount(soulCount);
+        //    Destroy(collision.gameObject);
+        //}
     }
 
     public void TakeDamage()
@@ -154,7 +193,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         if(health == 0)
         {
             //Disable Player
-            //Enter Death Scene
+            SceneManager.LoadScene(3);
         }
     }    
 
