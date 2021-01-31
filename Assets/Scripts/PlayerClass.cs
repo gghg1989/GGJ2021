@@ -22,6 +22,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     public LayerMask CollisionLayer;
 
+    private bool FacingRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
         movePoint.parent = null;
 
-        controls.Gameplay.Movement.canceled += context => OnMovement(context);
+        controls.Gameplay.Movement.actionMap.actionTriggered += context => OnActionTriggered(context);
     }
 
     // Update is called once per frame
@@ -57,23 +59,32 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
+        
         if (Vector2.Distance(transform.position, movePoint.position) <= 0.05f)
         {
             Vector2 moveVector = context.ReadValue<Vector2>();
+            Debug.Log(moveVector);
 
-            GetComponent<Animator>().SetBool("Idle", true);
-            GetComponent<Animator>().SetFloat("DirX", 0f);
-            GetComponent<Animator>().SetFloat("DirY", 0f);
+            // Flip player side animation
+            if (moveVector.x < 0 && FacingRight)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                FacingRight = false;
+            }
+            else if (moveVector.x > 0 && !FacingRight)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                FacingRight = true;
+            }
 
             if (Mathf.Abs(moveVector.x) == 1f)
             {
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveVector.x, 0f, 0f), 0.2f, CollisionLayer))
                 {
                     // Update player direction and load relevant animation
-                    transform.localScale = new Vector3(transform.localScale.x * moveVector.x, transform.localScale.y, transform.localScale.z);
-                    GetComponent<Animator>().SetFloat("DirX", moveVector.x);
-                    GetComponent<Animator>().SetFloat("DirY", 0f);
-                    GetComponent<Animator>().SetBool("Idle", false);
+                    GetComponentInChildren<Animator>().SetFloat("DirX", 1f);
+                    GetComponentInChildren<Animator>().SetFloat("DirY", 0f);
+                    GetComponentInChildren<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(moveVector.x, 0f, 0f);
                 }
             }
@@ -82,11 +93,16 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVector.y, 0f), 0.2f, CollisionLayer))
                 {
                     // Update player direction and load relevant animation
-                    GetComponent<Animator>().SetFloat("DirX", 0f);
-                    GetComponent<Animator>().SetFloat("DirY", moveVector.y);
-                    GetComponent<Animator>().SetBool("Idle", false);
+                    GetComponentInChildren<Animator>().SetFloat("DirX", 0f);
+                    GetComponentInChildren<Animator>().SetFloat("DirY", moveVector.y);
+                    GetComponentInChildren<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(0f, moveVector.y, 0f);
                 }
+            }
+
+            if (moveVector.y == 0 && moveVector.x == 0)
+            {
+                GetComponentInChildren<Animator>().SetBool("Idle", true);
             }
         }
     }
@@ -124,6 +140,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         {
             soulCount += 1;
             healthDisplay.UpdateSoulCount(soulCount);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -150,6 +167,23 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                 attackEnabled = false;
                 attackCountdown = 20;
             }
+        }
+    }
+
+    void OnActionTriggered(InputAction.CallbackContext context)
+    {
+        string action = context.action.name;
+
+        switch(action)
+        {
+            case "Movement":
+                OnMovement(context);
+                break;
+            case "Use/Interact":
+                OnUseInteract(context);
+                break;
+            default:
+                break;
         }
     }
 }
