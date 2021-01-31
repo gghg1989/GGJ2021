@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DeadHeroClass : MonoBehaviour
-{ 
+{
+    public ParticleSystem revivingHeroParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class DeadHeroClass : MonoBehaviour
             if(player.soulCount == player.maxSouls)
             {
                 GetComponentInChildren<Animator>().SetBool("Revived", true);
+                revivingHeroParticles.Play();
             }
         }
     }
