@@ -53,6 +53,8 @@ public class EnemyClass : MonoBehaviour
     public int numberOfInvalidMoves;
     public int maxInvalidMoves;
 
+    bool canMove;
+
     public float moveIncrement; //the base move increment the enemy will take, this is the center to center distance of the tiles
     public float unStuckMove; // how much the enemy moves to get un stuck
 
@@ -89,6 +91,7 @@ public class EnemyClass : MonoBehaviour
         targetPosition = transform.position;
         isMoving = false;
         dragonAnimator = gameObject.GetComponentInChildren<Animator>();
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -97,7 +100,11 @@ public class EnemyClass : MonoBehaviour
 
         currentPosition = transform.position;
 
-        MoveTowardPlayer();
+        if (canMove)
+        {
+            MoveTowardPlayer();
+        }
+        
 
         previousPosition = currentPosition;
         
@@ -329,6 +336,8 @@ public class EnemyClass : MonoBehaviour
         dragonAnimator.SetBool("Dead", true);
 
         gameObject.GetComponent<Collider2D>().enabled = false;
+
+        canMove = false;
 
 
     }
