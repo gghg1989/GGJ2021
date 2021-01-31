@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7069412311756496078}
   - component: {fileID: 1520713680545809064}
+  - component: {fileID: 3484013916682111489}
   m_Layer: 0
   m_Name: DeadHeroAnimation
   m_TagString: Untagged
@@ -384,6 +385,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3484013916682111489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832174822732229160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba7c8812f03d5943b8c80d742835dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7093626370184908880
 GameObject:
   m_ObjectHideFlags: 0
