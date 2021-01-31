@@ -342,7 +342,7 @@ public class EnemyClass : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerClass thePlayer;
         
@@ -356,6 +356,11 @@ public class EnemyClass : MonoBehaviour
                 {
                     EnemyKilled();
                 }
+            }
+            
+            else
+            {
+                thePlayer.TakeDamage();
             }
         }
         
