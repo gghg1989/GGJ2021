@@ -24,6 +24,10 @@ public class PlayerControl : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
+        GetComponent<Animator>().SetBool("Idle", true);
+        GetComponent<Animator>().SetFloat("DirX", 0f);
+        GetComponent<Animator>().SetFloat("DirY", 0f);
+
         if (Vector2.Distance(transform.position, movePoint.position) <= 0.05f)
         {
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
@@ -33,6 +37,7 @@ public class PlayerControl : MonoBehaviour
                     // Update player direction and load relevant animation
                     GetComponent<Animator>().SetFloat("DirX", Input.GetAxis("Horizontal"));
                     GetComponent<Animator>().SetFloat("DirY", 0f);
+                    GetComponent<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
                 }
             }
@@ -43,6 +48,7 @@ public class PlayerControl : MonoBehaviour
                     // Update player direction and load relevant animation
                     GetComponent<Animator>().SetFloat("DirX", 0f);
                     GetComponent<Animator>().SetFloat("DirY", Input.GetAxis("Vertical"));
+                    GetComponent<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
                 }
                 
