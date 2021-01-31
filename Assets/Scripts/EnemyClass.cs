@@ -326,7 +326,11 @@ public class EnemyClass : MonoBehaviour
     {
         //set the game objec inactive to return to object pool
 
-        gameObject.SetActive(false);
+        dragonAnimator.SetBool("Dead", true);
+
+        gameObject.GetComponent<Collider2D>().enabled = false;
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
