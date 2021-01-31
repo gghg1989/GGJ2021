@@ -6,15 +6,22 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     private int hearts;
-    public PlayerClass player;
 
-    public Image[] heartDisplay;
+    PlayerClass player;
+
+    public Text text;
+
+    public GameObject[] heartDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerClass>();
+
         hearts = player.health;
         UpdateHealthDisplay();
+
+        UpdateSoulCount(0);
     }
 
     // Update is called once per frame
@@ -29,11 +36,11 @@ public class Health : MonoBehaviour
         {
             if (i < hearts)
             {
-                heartDisplay[i].enabled = true;
+                heartDisplay[i].SetActive(true);
             }
             else
             {
-                heartDisplay[i].enabled = false;
+                heartDisplay[i].SetActive(false);
             }
         }
     }
@@ -42,6 +49,11 @@ public class Health : MonoBehaviour
     {
         hearts += addToHeartCount;
         UpdateHealthDisplay();
+    }
+
+    public void UpdateSoulCount(int soulCount)
+    {
+        text.text = soulCount.ToString();
     }
 
 

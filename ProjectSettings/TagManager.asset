@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Enemy
+  - ExtraLife
+  - SuperPower
+  - Soul
   layers:
   - Default
   - TransparentFX
@@ -39,14 +43,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 1063229179
     locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Objects
     uniqueID: 2102285027
+    locked: 0
+  - name: Decorative
+    uniqueID: 1532177979
     locked: 0
   - name: Player
     uniqueID: 586785535
