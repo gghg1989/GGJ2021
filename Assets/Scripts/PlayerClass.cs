@@ -138,6 +138,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                 break;
             case "SuperPower":
                 attackEnabled = true;
+                Destroy(collision.gameObject);
                 break;
             case "Soul":
                 soulCount += 1;
