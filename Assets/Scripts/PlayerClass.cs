@@ -47,7 +47,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
         controls.Gameplay.Movement.actionMap.actionTriggered += context => OnActionTriggered(context);
 
-        attackCountdown = 5000000 * Time.deltaTime;
+        attackCountdown = 20f;
     }
 
     // Update is called once per frame
@@ -204,12 +204,12 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     {
         if (attackEnabled == true)
         {
-            attackCountdown -= 1;
+            attackCountdown -= Time.deltaTime;
 
             if (attackCountdown <= 0)
             {
                 attackEnabled = false;
-                attackCountdown = 20 * Time.deltaTime;
+                attackCountdown = 20f;
             }
         }
     }
