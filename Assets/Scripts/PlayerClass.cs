@@ -10,7 +10,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
     public int health;
     public float power;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     public bool attackEnabled = false;
     private int attackCountdown = 20;
     public int soulCount;
@@ -37,6 +37,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         controls.Gameplay.Enable();
 
         movePoint.parent = null;
+
+        controls.Gameplay.Movement.canceled += context => OnMovement(context);
     }
 
     // Update is called once per frame
@@ -59,13 +61,19 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         {
             Vector2 moveVector = context.ReadValue<Vector2>();
 
+            GetComponent<Animator>().SetBool("Idle", true);
+            GetComponent<Animator>().SetFloat("DirX", 0f);
+            GetComponent<Animator>().SetFloat("DirY", 0f);
+
             if (Mathf.Abs(moveVector.x) == 1f)
             {
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveVector.x, 0f, 0f), 0.2f, CollisionLayer))
                 {
                     // Update player direction and load relevant animation
+                    transform.localScale = new Vector3(transform.localScale.x * moveVector.x, transform.localScale.y, transform.localScale.z);
                     GetComponent<Animator>().SetFloat("DirX", moveVector.x);
                     GetComponent<Animator>().SetFloat("DirY", 0f);
+                    GetComponent<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(moveVector.x, 0f, 0f);
                 }
             }
@@ -76,6 +84,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                     // Update player direction and load relevant animation
                     GetComponent<Animator>().SetFloat("DirX", 0f);
                     GetComponent<Animator>().SetFloat("DirY", moveVector.y);
+                    GetComponent<Animator>().SetBool("Idle", false);
                     movePoint.position += new Vector3(0f, moveVector.y, 0f);
                 }
             }
