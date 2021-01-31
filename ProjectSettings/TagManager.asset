@@ -55,6 +55,9 @@ TagManager:
   - name: Decorative
     uniqueID: 1532177979
     locked: 0
+  - name: DeadHero
+    uniqueID: 2684015975
+    locked: 0
   - name: Player
     uniqueID: 586785535
     locked: 0
