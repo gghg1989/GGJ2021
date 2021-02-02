@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
+public class PlayerClass : MonoBehaviour//, ControlSystem.IGameplayActions
 {
     ControlSystem controls;
 
@@ -37,7 +37,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         {
             controls = new ControlSystem();
 
-            controls.Gameplay.SetCallbacks(this);
+            //controls.Gameplay.SetCallbacks(this);
         }
 
         //enable control input
@@ -45,7 +45,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
 
         movePoint.parent = null;
 
-        controls.Gameplay.Movement.actionMap.actionTriggered += context => OnActionTriggered(context);
+        //controls.Gameplay.Movement.actionMap.actionTriggered += context => OnActionTriggered(context);
 
         attackCountdown = 20f;
     }
@@ -54,6 +54,9 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        Vector2 moveVector = controls.Gameplay.Movement.ReadValue<Vector2>();
+        OnMovement(moveVector);
 
         AttackCountdown();
     }
@@ -64,9 +67,9 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         controls.Gameplay.Disable();
     }
 
-    public void OnMovement(InputAction.CallbackContext context)
+    public void OnMovement(Vector2 moveVector)
     {
-        Vector2 moveVector = context.ReadValue<Vector2>();
+        //Vector2 moveVector = context.ReadValue<Vector2>();
 
         if (moveVector.x == 0 && moveVector.y == 0)
         {
@@ -116,7 +119,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         }
     }
 
-    public void OnUseInteract(InputAction.CallbackContext context)
+    public void OnUseInteract()
     {
         //To be used for potion and shop idea later if applicable
     }
@@ -214,20 +217,20 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         }
     }
 
-    void OnActionTriggered(InputAction.CallbackContext context)
-    {
-        string action = context.action.name;
+    //void OnActionTriggered(InputAction.CallbackContext context)
+    //{
+    //    string action = context.action.name;
 
-        switch(action)
-        {
-            case "Movement":
-                OnMovement(context);
-                break;
-            case "Use/Interact":
-                OnUseInteract(context);
-                break;
-            default:
-                break;
-        }
-    }
+    //    switch(action)
+    //    {
+    //        case "Movement":
+    //            OnMovement(context);
+    //            break;
+    //        case "Use/Interact":
+    //            OnUseInteract(context);
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 }
