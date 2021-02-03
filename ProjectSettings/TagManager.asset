@@ -64,3 +64,6 @@ TagManager:
   - name: RedEnemy
     uniqueID: 237443657
     locked: 0
+  - name: RevivingLayer
+    uniqueID: 3022713685
+    locked: 0
