@@ -12,7 +12,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     public float power;
     public float moveSpeed = 3f;
     public bool attackEnabled = false;
-    private int attackCountdown = 20;
+    private float attackCountdown;
     public int soulCount;
     public int attackPower;
     public int maxSouls;
@@ -46,6 +46,8 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
         movePoint.parent = null;
 
         controls.Gameplay.Movement.actionMap.actionTriggered += context => OnActionTriggered(context);
+
+        attackCountdown = 20f;
     }
 
     // Update is called once per frame
@@ -138,6 +140,7 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
                 break;
             case "SuperPower":
                 attackEnabled = true;
+                Destroy(collision.gameObject);
                 break;
             case "Soul":
                 soulCount += 1;
@@ -201,12 +204,12 @@ public class PlayerClass : MonoBehaviour, ControlSystem.IGameplayActions
     {
         if (attackEnabled == true)
         {
-            attackCountdown -= 1;
+            attackCountdown -= Time.deltaTime;
 
-            if (attackCountdown == 0)
+            if (attackCountdown <= 0)
             {
                 attackEnabled = false;
-                attackCountdown = 20;
+                attackCountdown = 20f;
             }
         }
     }

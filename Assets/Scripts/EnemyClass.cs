@@ -53,6 +53,8 @@ public class EnemyClass : MonoBehaviour
     public int numberOfInvalidMoves;
     public int maxInvalidMoves;
 
+    bool canMove;
+
     public float moveIncrement; //the base move increment the enemy will take, this is the center to center distance of the tiles
     public float unStuckMove; // how much the enemy moves to get un stuck
 
@@ -89,6 +91,7 @@ public class EnemyClass : MonoBehaviour
         targetPosition = transform.position;
         isMoving = false;
         dragonAnimator = gameObject.GetComponentInChildren<Animator>();
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -97,7 +100,11 @@ public class EnemyClass : MonoBehaviour
 
         currentPosition = transform.position;
 
-        MoveTowardPlayer();
+        if (canMove)
+        {
+            MoveTowardPlayer();
+        }
+        
 
         previousPosition = currentPosition;
         
@@ -306,7 +313,7 @@ public class EnemyClass : MonoBehaviour
                 break;
 
             case direction.west:
-                if (!Physics2D.OverlapCircle(transform.position + new Vector3(-moveIncrement, 0f), colliderCheckRadius, collisionLayer)) //check the north
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(moveIncrement, 0f), colliderCheckRadius, collisionLayer)) //check the north
                 {
                     validMove = true;
                 }
@@ -326,19 +333,21 @@ public class EnemyClass : MonoBehaviour
     {
         //set the game objec inactive to return to object pool
 
-        gameObject.SetActive(false);
+        dragonAnimator.SetBool("Dead", true);
+
+        gameObject.GetComponent<Collider2D>().enabled = false;
+
+        canMove = false;
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        
         PlayerClass thePlayer;
         
         if(collision.gameObject.tag == "Player")
         {
-            
-
             thePlayer = collision.gameObject.GetComponent<PlayerClass>();
             if (thePlayer.attackEnabled)
             {
@@ -348,6 +357,7 @@ public class EnemyClass : MonoBehaviour
                     EnemyKilled();
                 }
             }
+            
             else
             {
                 thePlayer.TakeDamage();
