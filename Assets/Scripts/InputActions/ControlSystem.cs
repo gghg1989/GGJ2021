@@ -20,16 +20,24 @@ public class @ControlSystem : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""723b3399-94f9-4cdd-8550-40d62b372b7f"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=0.1)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Use/Interact"",
                     ""type"": ""Button"",
                     ""id"": ""8c99474d-9230-4b31-9a08-1ca1df8762f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""11273771-3032-4e08-bf64-0eb7b50ce276"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -156,6 +164,17 @@ public class @ControlSystem : IInputActionCollection, IDisposable
                     ""action"": ""Use/Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dfae0df5-6565-4d8c-ace7-fd703ca2c4f2"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +185,7 @@ public class @ControlSystem : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_UseInteract = m_Gameplay.FindAction("Use/Interact", throwIfNotFound: true);
+        m_Gameplay_ESC = m_Gameplay.FindAction("ESC", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -217,12 +237,14 @@ public class @ControlSystem : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_UseInteract;
+    private readonly InputAction m_Gameplay_ESC;
     public struct GameplayActions
     {
         private @ControlSystem m_Wrapper;
         public GameplayActions(@ControlSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @UseInteract => m_Wrapper.m_Gameplay_UseInteract;
+        public InputAction @ESC => m_Wrapper.m_Gameplay_ESC;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +260,9 @@ public class @ControlSystem : IInputActionCollection, IDisposable
                 @UseInteract.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUseInteract;
                 @UseInteract.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUseInteract;
                 @UseInteract.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUseInteract;
+                @ESC.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnESC;
+                @ESC.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnESC;
+                @ESC.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnESC;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -248,6 +273,9 @@ public class @ControlSystem : IInputActionCollection, IDisposable
                 @UseInteract.started += instance.OnUseInteract;
                 @UseInteract.performed += instance.OnUseInteract;
                 @UseInteract.canceled += instance.OnUseInteract;
+                @ESC.started += instance.OnESC;
+                @ESC.performed += instance.OnESC;
+                @ESC.canceled += instance.OnESC;
             }
         }
     }
@@ -256,5 +284,6 @@ public class @ControlSystem : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnUseInteract(InputAction.CallbackContext context);
+        void OnESC(InputAction.CallbackContext context);
     }
 }

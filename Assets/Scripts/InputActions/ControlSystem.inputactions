@@ -7,16 +7,24 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "723b3399-94f9-4cdd-8550-40d62b372b7f",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Press(pressPoint=0.1)"
+                    "interactions": ""
                 },
                 {
                     "name": "Use/Interact",
                     "type": "Button",
                     "id": "8c99474d-9230-4b31-9a08-1ca1df8762f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ESC",
+                    "type": "Button",
+                    "id": "11273771-3032-4e08-bf64-0eb7b50ce276",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -141,6 +149,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Use/Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfae0df5-6565-4d8c-ace7-fd703ca2c4f2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
