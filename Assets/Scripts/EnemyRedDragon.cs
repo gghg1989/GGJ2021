@@ -112,7 +112,7 @@ public class EnemyRedDragon : MonoBehaviour
     {
         Vector2[] compass = {Vector2.up, Vector2.right, Vector2.down, Vector2.left};
         int[] availableMovementList = {0, 0, 0, 0};
-        int[] targetDirList = {0, 0, 0, 0};
+        int[] targetDirList = {1, 1, 1, 1};
         int[] movementRankList = new int[] {0, 0, 0, 0};
         
         for (int i=0; i < compass.Length; i++)
