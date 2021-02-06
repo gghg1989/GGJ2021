@@ -12,7 +12,7 @@ public class PlayerClass : MonoBehaviour//, ControlSystem.IGameplayActions
     public float power;
     public float moveSpeed = 3f;
     public bool attackEnabled = false;
-    private float attackCountdown;
+    private int attackCountdown = 10;
     public int soulCount;
     public int attackPower;
     public int maxSouls;
@@ -27,9 +27,15 @@ public class PlayerClass : MonoBehaviour//, ControlSystem.IGameplayActions
 
     public GameObject[] Souls;
 
+    public GameObject pointLight;
+
     // Start is called before the first frame update
     void Start()
     {
+        pointLight.SetActive(false);
+
+        Souls = GameObject.FindGameObjectsWithTag("Soul");
+
         maxSouls = Souls.Length;
 
         //if no controls, create new one
@@ -46,8 +52,6 @@ public class PlayerClass : MonoBehaviour//, ControlSystem.IGameplayActions
         movePoint.parent = null;
 
         //controls.Gameplay.Movement.actionMap.actionTriggered += context => OnActionTriggered(context);
-
-        attackCountdown = 20f;
     }
 
     // Update is called once per frame
@@ -57,8 +61,6 @@ public class PlayerClass : MonoBehaviour//, ControlSystem.IGameplayActions
 
         Vector2 moveVector = controls.Gameplay.Movement.ReadValue<Vector2>();
         OnMovement(moveVector);
-
-        AttackCountdown();
     }
 
     private void OnDisable()
@@ -143,6 +145,8 @@ public class PlayerClass : MonoBehaviour//, ControlSystem.IGameplayActions
                 break;
             case "SuperPower":
                 attackEnabled = true;
+                pointLight.SetActive(true);
+                StartCoroutine("AttackCountdown");
                 Destroy(collision.gameObject);
                 break;
             case "Soul":
@@ -203,18 +207,13 @@ public class PlayerClass : MonoBehaviour//, ControlSystem.IGameplayActions
         }
     }    
 
-    private void AttackCountdown()
+    IEnumerator AttackCountdown()
     {
-        if (attackEnabled == true)
-        {
-            attackCountdown -= Time.deltaTime;
 
-            if (attackCountdown <= 0)
-            {
-                attackEnabled = false;
-                attackCountdown = 20f;
-            }
-        }
+        yield return new WaitForSeconds(attackCountdown);
+
+        attackEnabled = false;
+        pointLight.SetActive(false);
     }
 
     //void OnActionTriggered(InputAction.CallbackContext context)
